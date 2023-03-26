@@ -4,6 +4,7 @@
 - [NestJSでバリデーション](#nestjsでバリデーション)
 - [ORM](#orm)
   - [TypeORM](#typeorm)
+- [マイグレーション](#マイグレーション)
 
 ## NestJSのアーキテクチャ
 - エントリーポイントは`main.ts`
@@ -55,3 +56,10 @@
   - Entity を管理するためのオブジェクト
   - Entity と Repository が 1 対 1 となり DB 操作を抽象化する
   - クラスに `@EntityRepository()`デコレータを付けて Repository を継承する
+
+## マイグレーション
+- SQLではない言語で定義されたデータ定義をDBに反映
+- アプリケーションを実装している言語のままDB操作が可能
+  - テーブルのバージョン管理が容易になる
+- `npx typeorm migration:generate -n {name}`
+- `npx typeorm migration:run`
